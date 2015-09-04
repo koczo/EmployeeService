@@ -1,30 +1,25 @@
-﻿using System;
+﻿using DataAccess;
+using Models.Objects;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.Serialization;
-using System.ServiceModel;
 using System.Text;
-using System.Data;
-using System.Data.SqlClient;
-using System.Configuration;
-using Models.Objects;
-using Logic;
 
-namespace EmployeeService
+namespace Logic
 {
-    public class EmployeeService : IEmployeeService
+    public class EmployeeLogic
     {
-        private EmployeeLogic logic = null;
-        public EmployeeService()
+        EmployeeEngine engine = null;
+        public EmployeeLogic()
         {
-            logic = new EmployeeLogic();
+            EmployeeEngine engine = new EmployeeEngine();
         }
 
         public Employee GetEmployeeById(int id)
         {
             try
             {
-                return logic.GetEmployeeById(id);
+               return  engine.GetEmployeeById(id);
             }
             catch (Exception ex)
             {
@@ -36,7 +31,7 @@ namespace EmployeeService
         {
             try
             {
-                return logic.SaveEmployee(employee);
+                return engine.SaveEmployee(employee);
             }
             catch (Exception ex)
             {

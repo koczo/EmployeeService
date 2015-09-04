@@ -1,9 +1,10 @@
-﻿using System;
+﻿using Models.Objects;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace EmployeeService
+namespace Models.Factories
 {
     public static class FactoryEmployee
     {
