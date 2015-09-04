@@ -9,17 +9,11 @@ namespace Logic
 {
     public class EmployeeLogic
     {
-        EmployeeEngine engine = null;
-        public EmployeeLogic()
-        {
-            EmployeeEngine engine = new EmployeeEngine();
-        }
-
         public Employee GetEmployeeById(int id)
         {
             try
             {
-               return  engine.GetEmployeeById(id);
+                return EmployeeEngine.GetEmployeeById(id);
             }
             catch (Exception ex)
             {
@@ -31,7 +25,7 @@ namespace Logic
         {
             try
             {
-                return engine.SaveEmployee(employee);
+                return EmployeeEngine.SaveEmployee(employee);
             }
             catch (Exception ex)
             {

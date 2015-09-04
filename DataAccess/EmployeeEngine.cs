@@ -12,7 +12,12 @@ namespace DataAccess
 {
     public class EmployeeEngine
     {
-        public SqlConnection GetConnection()
+        public EmployeeEngine()
+        {
+
+        }
+
+        private static SqlConnection GetConnection()
         {
             SqlConnection connection = new SqlConnection();
             connection.ConnectionString = ConfigurationManager.ConnectionStrings["DBCS"].ConnectionString;
@@ -20,7 +25,7 @@ namespace DataAccess
             return connection;
         }
 
-        public Employee GetEmployeeById(int id)
+        public static Employee GetEmployeeById(int id)
         {
             try
             {
@@ -64,7 +69,7 @@ namespace DataAccess
             }
         }
 
-        public int SaveEmployee(Employee employee)
+        public static int SaveEmployee(Employee employee)
         {
             try
             {
